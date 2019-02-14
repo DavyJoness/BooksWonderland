@@ -1,0 +1,31 @@
+﻿<Window x:Class="BooksWonderland.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BooksWonderland"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <DockPanel x:Name="dockPanel1">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Plik">
+                <MenuItem Header="_Dodaj" Click="MenuItem_Add" />
+                <Separator />
+                <MenuItem Header="_Zamknij" Click="MenuItem_Close" />
+            </MenuItem>
+            <MenuItem Header="_Edycja">
+                <MenuItem Header="Edytuj książkę" Click="MenuItem_Edit"/>
+            </MenuItem>
+            <MenuItem Header="_Pomoc">
+                <MenuItem Header="O programie" Click="MenuItem_About"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="ready"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <DataGrid Name="gridBooks" ItemsSource="{Binding}" />
+    </DockPanel>
+</Window>

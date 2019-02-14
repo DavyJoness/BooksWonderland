@@ -1,0 +1,93 @@
+﻿<Window x:Class="BooksWonderland.SimpleBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BooksWonderland"
+        mc:Ignorable="d"
+        Title="SimpleBook" Height="400" Width="800.93">
+    <DockPanel LastChildFill="True">
+        <Button Name="AddBook" DockPanel.Dock="Bottom" Content="Dodaj" HorizontalAlignment="Right" Margin="0,5,20,5" Width="100" />
+        <TabControl>
+            <TabItem Header="Książka">
+                <DockPanel LastChildFill="True">
+                    <StackPanel DockPanel.Dock="Top">
+                        <Label Content="Tytuł" Target="{Binding ElementName=TextBoxTitle}"/>
+                        <TextBox Name="TextBoxTitle" />
+                    </StackPanel>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <Label Content="Autor" Target="{Binding ElementName=TextBoxAuthor}" />
+	                        <TextBox Name="TextBoxAuthor" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <Label Content="Wydawca" Target="{Binding ElementName=TextBoxPublisher}" />
+                            <TextBox Name="TextBoxPublisher" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <Label Content="Gatunek" Target="{Binding ElementName=TextBoxGenre}" />
+                            <TextBox Name="TextBoxGenre" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <Label Content="Data zakupu" Target="{Binding ElementName=TextBoxPurchased}" />
+                            <TextBox Name="TextBoxPurchased" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.Column="0">
+                            <Label Content="Rok wydania" Target="{Binding ElementName=TextBoxYear}" />
+                            <TextBox Name="TextBoxYear" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <Label Content="Cena" Target="{Binding ElementName=TextBoxPrice}" />
+                            <TextBox Name="TextBoxPrice" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2">
+                            <Label Content="Ilość stron" Target="{Binding ElementName=TextBoxPages}" />
+                            <TextBox Name="TextBoxPages" />
+                        </StackPanel>
+                    </Grid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Opis">
+                <TextBox Name="TextBoxDescribe"></TextBox>
+            </TabItem>
+            <TabItem Header="Okładka">
+                <DockPanel LastChildFill="True">
+
+                    <Image DockPanel.Dock="Left" Margin="20 20 20 20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="180" />
+                    <StackPanel Width="Auto" Height="Auto">
+                        <Button Content="Pobierz zdjęcie" Width="Auto" HorizontalAlignment="Center" />
+                        <Button Content="Załaduj zdjęcie" Width="Auto" HorizontalAlignment="Center" />
+                        <Button Content="Usuń zdjęcie" Width="Auto" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+        
+    </DockPanel>
+</Window>
