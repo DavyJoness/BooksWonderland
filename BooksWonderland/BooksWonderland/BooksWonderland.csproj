@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Book.cs" />
     <Compile Include="SimpleBook.xaml.cs">
       <DependentUpon>SimpleBook.xaml</DependentUpon>
     </Compile>

@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="SimpleBook" Height="400" Width="800.93">
     <DockPanel LastChildFill="True">
-        <Button Name="AddBook" DockPanel.Dock="Bottom" Content="Dodaj" HorizontalAlignment="Right" Margin="0,5,20,5" Width="100" />
+        <Button Name="AddBook" DockPanel.Dock="Bottom" Content="Dodaj" HorizontalAlignment="Right" Margin="0,5,20,5" Width="100" Click="AddBook_Click" />
         <TabControl>
             <TabItem Header="Książka">
                 <DockPanel LastChildFill="True">
-                    <StackPanel DockPanel.Dock="Top">
+                    <StackPanel DockPanel.Dock="Top" Margin="15,0">
                         <Label Content="Tytuł" Target="{Binding ElementName=TextBoxTitle}"/>
                         <TextBox Name="TextBoxTitle" />
                     </StackPanel>
@@ -23,11 +23,11 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Autor" Target="{Binding ElementName=TextBoxAuthor}" />
 	                        <TextBox Name="TextBoxAuthor" />
                         </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="1">
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Wydawca" Target="{Binding ElementName=TextBoxPublisher}" />
                             <TextBox Name="TextBoxPublisher" />
                         </StackPanel>
@@ -40,11 +40,11 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Gatunek" Target="{Binding ElementName=TextBoxGenre}" />
                             <TextBox Name="TextBoxGenre" />
                         </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="1">
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Data zakupu" Target="{Binding ElementName=TextBoxPurchased}" />
                             <TextBox Name="TextBoxPurchased" />
                         </StackPanel>
@@ -58,15 +58,15 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Rok wydania" Target="{Binding ElementName=TextBoxYear}" />
                             <TextBox Name="TextBoxYear" />
                         </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="1">
+                        <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Cena" Target="{Binding ElementName=TextBoxPrice}" />
                             <TextBox Name="TextBoxPrice" />
                         </StackPanel>
-                        <StackPanel Grid.Row="0" Grid.Column="2">
+                        <StackPanel Grid.Row="0" Grid.Column="2" Margin="15,0">
                             <Label Content="Ilość stron" Target="{Binding ElementName=TextBoxPages}" />
                             <TextBox Name="TextBoxPages" />
                         </StackPanel>
@@ -74,7 +74,7 @@
                 </DockPanel>
             </TabItem>
             <TabItem Header="Opis">
-                <TextBox Name="TextBoxDescribe"></TextBox>
+                <TextBox Name="TextBoxDescribe" Margin="15,15"></TextBox>
             </TabItem>
             <TabItem Header="Okładka">
                 <DockPanel LastChildFill="True">

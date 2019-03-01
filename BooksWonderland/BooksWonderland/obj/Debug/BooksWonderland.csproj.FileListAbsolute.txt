@@ -18,3 +18,23 @@ C:\Users\Master of Puppets\source\repos\BooksWonderland\BooksWonderland\bin\Debu
 C:\Users\Master of Puppets\source\repos\BooksWonderland\BooksWonderland\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Master of Puppets\source\repos\BooksWonderland\BooksWonderland\obj\Debug\SimpleBook.g.cs
 C:\Users\Master of Puppets\source\repos\BooksWonderland\BooksWonderland\obj\Debug\SimpleBook.baml
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\bin\Debug\BooksWonderland.exe.config
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\bin\Debug\BooksWonderland.exe
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\bin\Debug\BooksWonderland.pdb
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\bin\Debug\System.Data.SQLite.pdb
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.csprojAssemblyReference.cache
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\MainWindow.g.cs
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\SimpleBook.g.cs
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\App.g.cs
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland_MarkupCompile.cache
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland_MarkupCompile.lref
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\MainWindow.baml
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\SimpleBook.baml
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.g.resources
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.Properties.Resources.resources
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.csproj.GenerateResource.cache
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.csproj.CoreCompileInputs.cache
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.csproj.CopyComplete
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.exe
+C:\Users\kielp\GitHub\BooksWonderland\BooksWonderland\BooksWonderland\obj\Debug\BooksWonderland.pdb

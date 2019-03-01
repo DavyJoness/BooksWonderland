@@ -63,7 +63,7 @@ namespace BooksWonderland
 
         private void MenuItem_Edit(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            
         }
 
         private void MenuItem_About(object sender, RoutedEventArgs e)

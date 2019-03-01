@@ -19,9 +19,31 @@ namespace BooksWonderland
     /// </summary>
     public partial class SimpleBook : Window
     {
+        enum Operation
+        {
+            Add,
+            Edit
+        }
+
+        Operation o;
+        Book book;
+
+        public SimpleBook(Book book)
+        {
+            InitializeComponent();
+            o = Operation.Edit;
+            this.book = book;
+        }
+
         public SimpleBook()
         {
             InitializeComponent();
+            o = Operation.Add;
+        }
+
+        private void AddBook_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
