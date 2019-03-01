@@ -41,6 +41,32 @@ namespace BooksWonderland
             o = Operation.Add;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (o == Operation.Edit)
+            {
+                AddBook.Content = "Zapisz";
+                setAttributes();
+            }
+            else if(o == Operation.Add)
+            {
+
+            }
+        }
+
+        private void setAttributes()
+        {
+            TextBoxTitle.Text = book.Title;
+            TextBoxAuthor.Text = book.Author;
+            TextBoxPublisher.Text = book.Publisher;
+            TextBoxPurchased.Text = book.PurchaseDate;
+            TextBoxYear.Text = book.Year;
+            TextBoxGenre.Text = book.Genre;
+            TextBoxPrice.Text = book.Price;
+            TextBoxPages.Text = book.Pages;
+            TextBoxDescribe.Text = book.Describe;
+        }
+
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
             

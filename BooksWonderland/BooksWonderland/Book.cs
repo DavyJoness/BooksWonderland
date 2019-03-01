@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace BooksWonderland
         public string Price { get; set; }
         public string Pages { get; set; }
         public string Describe { get; set; }
+
+        public Book(DataRow row)
+        {
+            Title = row[0].ToString();
+        }
 
     }
 }

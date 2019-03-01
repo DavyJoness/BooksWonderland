@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BooksWonderland"
         mc:Ignorable="d"
-        Title="SimpleBook" Height="400" Width="800.93">
+        Title="SimpleBook" Height="400" Width="800.93" Loaded="Window_Loaded">
     <DockPanel LastChildFill="True">
         <Button Name="AddBook" DockPanel.Dock="Bottom" Content="Dodaj" HorizontalAlignment="Right" Margin="0,5,20,5" Width="100" Click="AddBook_Click" />
         <TabControl>

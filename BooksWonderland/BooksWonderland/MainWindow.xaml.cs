@@ -46,11 +46,6 @@ namespace BooksWonderland
             dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
 
-            foreach (DataRow r in dataSet.Tables[0].Rows)
-            {
-
-            }
-
             dataTable = dataSet.Tables[0];
             gridBooks.DataContext = dataTable.DefaultView;
         }
@@ -59,11 +54,23 @@ namespace BooksWonderland
         {
             SimpleBook sb = new SimpleBook();
             sb.ShowDialog();
+            if (sb.DialogResult == DialogResult.Value)
+            {
+                GetData();
+            }
         }
 
         private void MenuItem_Edit(object sender, RoutedEventArgs e)
         {
-            
+            DataRow r = dataSet.Tables[0].Rows.Add; //Odwolanie do zaznaczonego row
+            Book book = new Book(r);
+
+            SimpleBook sb = new SimpleBook(book);
+            sb.ShowDialog();
+            if (sb.DialogResult == DialogResult.Value)
+            {
+                GetData();
+            }
         }
 
         private void MenuItem_About(object sender, RoutedEventArgs e)
