@@ -2,18 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BooksWonderland
 {
@@ -25,6 +16,7 @@ namespace BooksWonderland
         private SQLiteDataAdapter dataAdapter = null;
         private DataSet dataSet = null;
         private DataTable dataTable = null;
+        private List<Book> books = new List<Book>();
 
         public MainWindow()
         {
@@ -38,6 +30,7 @@ namespace BooksWonderland
 
         private void GetData()
         {
+            Book book;
             SQLiteConnection SQLiteConnection = new SQLiteConnection("Data Source=books.s3db");
             SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
             oCommand.CommandText = "SELECT * FROM BookList";
@@ -46,7 +39,77 @@ namespace BooksWonderland
             dataSet = new DataSet();
             dataAdapter.Fill(dataSet);
 
+            foreach (DataRow dr in dataSet.Tables[0].Rows)
+            {
+                book = new Book();
+                book.Id = Convert.ToInt32(dr["id"]);
+                book.Title = dr["title"].ToString();
+                book.Author = dr["author"].ToString();
+                book.Publisher = dr["publisher"].ToString();
+                book.Year = dr["year"].ToString();
+                book.Genre = dr["genre"].ToString();
+                book.PurchaseDate = Convert.ToDateTime(dr["purchased"]);
+                book.Price = dr["price"].ToString();
+                book.Pages = dr["pages"].ToString();
+                //book.Describe = dr["describe"].ToString();
+
+                books.Add(book);
+            }
+
+            prepareGrid();
+
+        }
+
+        private void prepareGrid()
+        {
+            DataGridTextColumn column;
+
             dataTable = dataSet.Tables[0];
+            gridBooks.AutoGenerateColumns = false;
+            gridBooks.ItemsSource = books;
+
+            column = new DataGridTextColumn();
+            column.Header = "Tytuł";
+            column.Binding = new Binding("Title");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Autor";
+            column.Binding = new Binding("Author");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Wydawca";
+            column.Binding = new Binding("Publisher");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Rok wydania";
+            column.Binding = new Binding("Year");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Gatunek";
+            column.Binding = new Binding("Genre");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Data zakupu";
+            column.Binding = new Binding("PurchaseDate");
+            column.Binding.StringFormat = "dd.MM.yyyy";
+            gridBooks.Columns.Add(column);
+
+
+            column = new DataGridTextColumn();
+            column.Header = "Cena [zł]";
+            column.Binding = new Binding("Price");
+            gridBooks.Columns.Add(column);
+
+            column = new DataGridTextColumn();
+            column.Header = "Ilość stron";
+            column.Binding = new Binding("Pages");
+            gridBooks.Columns.Add(column);
+
             gridBooks.DataContext = dataTable.DefaultView;
         }
 
@@ -62,8 +125,9 @@ namespace BooksWonderland
 
         private void MenuItem_Edit(object sender, RoutedEventArgs e)
         {
-            DataRow r = dataSet.Tables[0].Rows.Add; //Odwolanie do zaznaczonego row
-            Book book = new Book(r);
+            int i = gridBooks.SelectedIndex;
+
+            Book book = books[i];
 
             SimpleBook sb = new SimpleBook(book);
             sb.ShowDialog();

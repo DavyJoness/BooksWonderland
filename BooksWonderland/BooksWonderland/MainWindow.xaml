@@ -26,6 +26,6 @@
             </StatusBarItem>
         </StatusBar>
 
-        <DataGrid Name="gridBooks" ItemsSource="{Binding}" />
+        <DataGrid Name="gridBooks" ItemsSource="{Binding}" CanUserResizeColumns="False" CanUserReorderColumns="False"  />
     </DockPanel>
 </Window>

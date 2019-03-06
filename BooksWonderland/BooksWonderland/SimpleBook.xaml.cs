@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace BooksWonderland
 {
@@ -27,6 +28,8 @@ namespace BooksWonderland
 
         Operation o;
         Book book;
+        SQLiteConnection SQLiteConnection = new SQLiteConnection("Data Source=books.s3db");
+        SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
 
         public SimpleBook(Book book)
         {
@@ -59,7 +62,7 @@ namespace BooksWonderland
             TextBoxTitle.Text = book.Title;
             TextBoxAuthor.Text = book.Author;
             TextBoxPublisher.Text = book.Publisher;
-            TextBoxPurchased.Text = book.PurchaseDate;
+            TextBoxPurchased.Text = book.PurchaseDate.ToShortDateString();
             TextBoxYear.Text = book.Year;
             TextBoxGenre.Text = book.Genre;
             TextBoxPrice.Text = book.Price;
@@ -69,7 +72,26 @@ namespace BooksWonderland
 
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (o == Operation.Edit)
+            {
+                addNewBook();
+            }
+            else if (o == Operation.Add)
+            {
+                setBook();
+            }
+        }
+
+        private void setBook()
+        {
+            oCommand.CommandText = "SELECT * FROM BookList";
+            oCommand.ExecuteNonQuery();
+        }
+
+        private void addNewBook()
+        {
+            oCommand.CommandText = "SELECT * FROM BookList";
+            oCommand.ExecuteNonQuery();
         }
     }
 }
