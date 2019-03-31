@@ -13,6 +13,7 @@ namespace BooksWonderland
     /// </summary>
     public partial class MainWindow : Window
     {
+        SQLiteConnection SQLiteConnection = new SQLiteConnection("Data Source=books.s3db");
         private SQLiteDataAdapter dataAdapter = null;
         private DataSet dataSet = null;
         private DataTable dataTable = null;
@@ -28,10 +29,11 @@ namespace BooksWonderland
             GetData();
         }
 
-        private void GetData()
+        private void GetData(bool reload = false)
         {
+            books = new List<Book>();
             Book book;
-            SQLiteConnection SQLiteConnection = new SQLiteConnection("Data Source=books.s3db");
+
             SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
             oCommand.CommandText = "SELECT * FROM BookList";
             dataAdapter = new SQLiteDataAdapter(oCommand.CommandText, SQLiteConnection);
@@ -56,7 +58,16 @@ namespace BooksWonderland
                 books.Add(book);
             }
 
-            prepareGrid();
+            if (!reload)
+            {
+                prepareGrid();
+            }
+            else
+            {
+                gridBooks.ItemsSource = null;
+                gridBooks.ItemsSource = books;
+            }
+
             SetStatus(SetStatusText());
         }
 
@@ -118,29 +129,36 @@ namespace BooksWonderland
         {
             SimpleBook sb = new SimpleBook();
             sb.ShowDialog();
-            if (sb.DialogResult == DialogResult.Value)
+            if (sb.DialogResult.HasValue && sb.DialogResult.Value)
             {
-                GetData();
+                GetData(true);
+                SetStatus("Książka poprawnie dodana");
             }
         }
 
         private void MenuItem_Edit(object sender, RoutedEventArgs e)
-        {
-            int i = gridBooks.SelectedIndex;
-
-            Book book = books[i];
-
-            SimpleBook sb = new SimpleBook(book);
-            sb.ShowDialog();
-            if (sb.DialogResult.HasValue && sb.DialogResult.Value)
+        { 
+            if (gridBooks.SelectedIndex >= 0)
             {
-                GetData();
+                Book book = (Book)gridBooks.SelectedItem;
+
+                SimpleBook sb = new SimpleBook(book);
+                sb.ShowDialog();
+                if (sb.DialogResult.HasValue && sb.DialogResult.Value)
+                {
+                    GetData(true);
+                    SetStatus("Książka poprawnie zmodyfikowana");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Zaznacz książkę przed edytowaniem", "BooksWonderland", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
         }
 
         private void MenuItem_About(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBox.Show($@"Projekt autorski DavyJoness" + Environment.NewLine + "Wszelkie uwagi zgłaszaj pod adres: matikielpinski@gmail.com", "BooksWonderland", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void MenuItem_Close(object sender, RoutedEventArgs e)
@@ -168,6 +186,45 @@ namespace BooksWonderland
                 res = res + "książek.";
 
             return res;
+        }
+
+        private void MenuItem_Delete(object sender, RoutedEventArgs e)
+        {
+            if (gridBooks.SelectedIndex >= 0)
+            {
+                Book book = (Book)gridBooks.SelectedItem;
+
+                if (MessageBox.Show("Czy na pewno chcesz usunąć zaznaczoną pozycję?", "BooksWonderland", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    DeleteBook(book.Id);
+                    GetData(true);
+                    SetStatus("Książka została usunięta.");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Zaznacz książkę przed usunięciem", "BooksWonderland", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
+        }
+
+        private void DeleteBook(int id)
+        {
+            SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
+
+            try
+            {
+                SQLiteConnection.Open();
+                oCommand.CommandText = $"delete from Books where id = {id}";
+                oCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                    MessageBox.Show($"Wystąpił błąd przy usuwaniu książki: {ex.Message}", "BooksWonderland", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                SQLiteConnection.Close();
+            }
         }
     }
 }

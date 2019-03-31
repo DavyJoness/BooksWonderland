@@ -25,17 +25,35 @@ namespace BooksWonderland
     {
         public int Id { get; set; }
         public string Author { get; set; }
+
+        public Authors(int i, string a)
+        {
+            Id = i;
+            Author = a;
+        }
     }
 
     public class Genres
     {
         public int Id { get; set; }
         public string Genre { get; set; }
+
+        public Genres(int i, string a)
+        {
+            Id = i;
+            Genre = a;
+        }
     }
 
     public class Publishers
     {
         public int Id { get; set; }
         public string Publisher { get; set; }
+
+        public Publishers(int i, string a)
+        {
+            Id = i;
+            Publisher = a;
+        }
     }
 }

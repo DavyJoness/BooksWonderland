@@ -15,6 +15,8 @@
             </MenuItem>
             <MenuItem Header="_Edycja">
                 <MenuItem Header="Edytuj książkę" Click="MenuItem_Edit"/>
+                <Separator />
+                <MenuItem Header="Usuń książkę" Click="MenuItem_Delete" />
             </MenuItem>
             <MenuItem Header="_Pomoc">
                 <MenuItem Header="O programie" Click="MenuItem_About"/>
@@ -26,6 +28,6 @@
             </StatusBarItem>
         </StatusBar>
 
-        <DataGrid Name="gridBooks" ItemsSource="{Binding}" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" IsReadOnly="True" />
+        <DataGrid Name="gridBooks" ItemsSource="{Binding}" CanUserResizeColumns="True" CanUserReorderColumns="False" CanUserAddRows="False" IsReadOnly="True" />
     </DockPanel>
 </Window>

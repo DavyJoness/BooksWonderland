@@ -25,11 +25,11 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Autor" Target="{Binding ElementName=TextBoxAuthor}" />
-                            <ComboBox Name="TextBoxAuthor" IsEditable="True" />
+                            <ComboBox Name="TextBoxAuthor" IsEditable="True" ItemsSource="{Binding Path=Authors}" DisplayMemberPath="Author" />
                         </StackPanel>
                         <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Wydawca" Target="{Binding ElementName=TextBoxPublisher}" />
-                            <ComboBox Name="TextBoxPublisher" IsEditable="True" />
+                            <ComboBox Name="TextBoxPublisher" IsEditable="True" ItemsSource="{Binding Path=Publishers}" DisplayMemberPath="Publisher" />
                         </StackPanel>
                     </Grid>
                     <Grid DockPanel.Dock="Top">
@@ -42,7 +42,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Gatunek" Target="{Binding ElementName=TextBoxGenre}" />
-                            <ComboBox Name="TextBoxGenre" Text="asdasd" IsEditable="True" />
+                            <ComboBox Name="TextBoxGenre" IsEditable="True"  ItemsSource="{Binding Path=Genres}" DisplayMemberPath="Genre" />
                         </StackPanel>
                         <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Data zakupu" Target="{Binding ElementName=TextBoxPurchased}" />
