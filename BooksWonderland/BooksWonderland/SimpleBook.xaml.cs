@@ -29,7 +29,7 @@ namespace BooksWonderland
         Operation o;
         Book book;
         SQLiteConnection SQLiteConnection = new SQLiteConnection("Data Source=books.s3db");
-        SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
+        
 
         public SimpleBook(Book book)
         {
@@ -84,14 +84,21 @@ namespace BooksWonderland
 
         private void setBook()
         {
-            oCommand.CommandText = "SELECT * FROM BookList";
-            oCommand.ExecuteNonQuery();
+            SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
+            //oCommand.CommandText = "SELECT * FROM BookList";
+            //oCommand.ExecuteNonQuery();
         }
 
         private void addNewBook()
         {
-            oCommand.CommandText = "SELECT * FROM BookList";
-            oCommand.ExecuteNonQuery();
+            SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
+            //oCommand.CommandText = "SELECT * FROM BookList";
+            //oCommand.ExecuteNonQuery();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

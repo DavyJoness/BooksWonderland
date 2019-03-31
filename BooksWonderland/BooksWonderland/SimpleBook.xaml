@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BooksWonderland"
         mc:Ignorable="d"
-        Title="SimpleBook" Height="400" Width="800.93" Loaded="Window_Loaded">
+        Title="SimpleBook" Height="400" Width="800.93" Loaded="Window_Loaded" Closing="Window_Closing">
     <DockPanel LastChildFill="True">
         <Button Name="AddBook" DockPanel.Dock="Bottom" Content="Dodaj" HorizontalAlignment="Right" Margin="0,5,20,5" Width="100" Click="AddBook_Click" />
         <TabControl>
@@ -25,11 +25,11 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Autor" Target="{Binding ElementName=TextBoxAuthor}" />
-	                        <TextBox Name="TextBoxAuthor" />
+                            <ComboBox Name="TextBoxAuthor" IsEditable="True" />
                         </StackPanel>
                         <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Wydawca" Target="{Binding ElementName=TextBoxPublisher}" />
-                            <TextBox Name="TextBoxPublisher" />
+                            <ComboBox Name="TextBoxPublisher" IsEditable="True" />
                         </StackPanel>
                     </Grid>
                     <Grid DockPanel.Dock="Top">
@@ -42,11 +42,11 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="15,0">
                             <Label Content="Gatunek" Target="{Binding ElementName=TextBoxGenre}" />
-                            <TextBox Name="TextBoxGenre" />
+                            <ComboBox Name="TextBoxGenre" Text="asdasd" IsEditable="True" />
                         </StackPanel>
                         <StackPanel Grid.Row="0" Grid.Column="1" Margin="15,0">
                             <Label Content="Data zakupu" Target="{Binding ElementName=TextBoxPurchased}" />
-                            <TextBox Name="TextBoxPurchased" />
+                            <DatePicker Name="TextBoxPurchased" />
                         </StackPanel>
                     </Grid>
                     <Grid DockPanel.Dock="Top">

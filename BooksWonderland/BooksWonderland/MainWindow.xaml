@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BooksWonderland"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="Books Wonderland" Height="450" Width="825" Loaded="Window_Loaded">
     <DockPanel x:Name="dockPanel1">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Plik">
@@ -22,10 +22,10 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBlock Text="ready"/>
+                <TextBlock x:Name="TextStatus" Text="ready"/>
             </StatusBarItem>
         </StatusBar>
 
-        <DataGrid Name="gridBooks" ItemsSource="{Binding}" CanUserResizeColumns="False" CanUserReorderColumns="False"  />
+        <DataGrid Name="gridBooks" ItemsSource="{Binding}" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserAddRows="False" IsReadOnly="True" />
     </DockPanel>
 </Window>

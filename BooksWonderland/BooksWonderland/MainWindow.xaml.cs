@@ -57,7 +57,7 @@ namespace BooksWonderland
             }
 
             prepareGrid();
-
+            SetStatus(SetStatusText());
         }
 
         private void prepareGrid()
@@ -71,6 +71,7 @@ namespace BooksWonderland
             column = new DataGridTextColumn();
             column.Header = "Tytuł";
             column.Binding = new Binding("Title");
+            column.Width = new DataGridLength(50, DataGridLengthUnitType.Star);
             gridBooks.Columns.Add(column);
 
             column = new DataGridTextColumn();
@@ -131,7 +132,7 @@ namespace BooksWonderland
 
             SimpleBook sb = new SimpleBook(book);
             sb.ShowDialog();
-            if (sb.DialogResult == DialogResult.Value)
+            if (sb.DialogResult.HasValue && sb.DialogResult.Value)
             {
                 GetData();
             }
@@ -145,6 +146,28 @@ namespace BooksWonderland
         private void MenuItem_Close(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SetStatus(string text)
+        {
+            TextStatus.Text = text;
+        }
+
+        private string SetStatusText()
+        {
+            int booksNumber = books.Count;
+            string res = $"Znaleziono {booksNumber} ";
+
+            if(booksNumber == 1)
+                res = res + "książkę.";
+            else if(booksNumber>=11 && booksNumber <= 19)
+                res = res + "książek.";
+            else if(booksNumber.ToString().EndsWith("2")|| booksNumber.ToString().EndsWith("3") || booksNumber.ToString().EndsWith("4"))
+                res = res + "książki.";
+            else
+                res = res + "książek.";
+
+            return res;
         }
     }
 }

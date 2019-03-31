@@ -19,8 +19,23 @@ namespace BooksWonderland
         public string Price { get; set; }
         public string Pages { get; set; }
         public string Describe { get; set; }
+    }
 
+    public class Authors
+    {
+        public int Id { get; set; }
+        public string Author { get; set; }
+    }
 
+    public class Genres
+    {
+        public int Id { get; set; }
+        public string Genre { get; set; }
+    }
 
+    public class Publishers
+    {
+        public int Id { get; set; }
+        public string Publisher { get; set; }
     }
 }
