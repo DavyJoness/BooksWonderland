@@ -81,10 +81,10 @@ namespace BooksWonderland
             if (IsValid())
             {
                 setBook();
-            }
 
-            this.DialogResult = true;
-            this.Close();
+                this.DialogResult = true;
+                //this.Close();
+            }
         }
 
         private bool IsValid()
@@ -146,6 +146,7 @@ namespace BooksWonderland
         {
             SQLiteCommand oCommand = SQLiteConnection.CreateCommand();
             string queryBooks = "";
+            //string price = Convert.ToDecimal(TextBoxPrice.Text).ToString("0.00");
 
             bool isAuthor = Authors.Any(a => a.Author == TextBoxAuthor.Text);
             bool isPublisher = Publishers.Any(a => a.Publisher == TextBoxPublisher.Text);
@@ -169,6 +170,8 @@ namespace BooksWonderland
                 genreId = Genres.Where(a => a.Genre == TextBoxGenre.Text).ToList()[0].Id;
             else
                 genreId = AddNewGenre();
+
+
             if (o == Operation.Add)
                 queryBooks = $@"insert into Books(title, author_id, publisher_id, year, genre_id, purchase_date, price, pages)
                             values ('{TextBoxTitle.Text}',{authorId},{publisherId},'{TextBoxYear.Text}',{genreId}
@@ -294,7 +297,7 @@ namespace BooksWonderland
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            this.DialogResult = false;
+            //this.DialogResult = false;
         }
 
         private void getAuthors()

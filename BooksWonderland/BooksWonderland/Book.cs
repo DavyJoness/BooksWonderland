@@ -16,9 +16,21 @@ namespace BooksWonderland
         public string Year { get; set; }
         public string Genre { get; set; }
         public DateTime PurchaseDate { get; set; }
-        public string Price { get; set; }
+        public string _price;
         public string Pages { get; set; }
         public string Describe { get; set; }
+
+        public string Price
+        {
+            get
+            {
+                return Convert.ToDecimal(_price).ToString("0.00");
+            }
+            set
+            {
+                _price = value;
+            }
+        }
     }
 
     public class Authors

@@ -111,10 +111,12 @@ namespace BooksWonderland
             column.Binding.StringFormat = "dd.MM.yyyy";
             gridBooks.Columns.Add(column);
 
-
             column = new DataGridTextColumn();
             column.Header = "Cena [zł]";
             column.Binding = new Binding("Price");
+            //{
+            //    StringFormat = "0:N0"
+            //};
             gridBooks.Columns.Add(column);
 
             column = new DataGridTextColumn();
