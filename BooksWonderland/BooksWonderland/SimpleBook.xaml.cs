@@ -208,7 +208,7 @@ namespace BooksWonderland
             {
                 MessageBox.Show($"Błąd pustych wartosci: kod: {authorId} {publisherId} {genreId}", "BooksWonderland", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            }
+            } //komentarz
         }
 
         private int AddNewGenre()
